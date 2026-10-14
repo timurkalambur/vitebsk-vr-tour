@@ -33,10 +33,10 @@
             color: var(--text-primary);
         }
 
-        /* Контейнер 360-панорамы */
+        /* Контейнер 360-панорамы поднят на 26px от верха, чтобы шапка (88px) полностью перекрывала UI-плашку Google Карт */
         #streetview-container {
             position: absolute;
-            top: 38px;
+            top: 26px;
             left: 0;
             right: 0;
             bottom: 0;
@@ -50,7 +50,7 @@
             border: none;
         }
 
-        /* Плавное затемнение при смене локации */
+        /* Плавное затемнение при смене локации или ракурса */
         #fade-overlay {
             position: fixed;
             inset: 0;
@@ -58,7 +58,7 @@
             z-index: 40;
             pointer-events: none;
             opacity: 0;
-            transition: opacity 0.35s ease-in-out;
+            transition: opacity 0.3s ease-in-out;
         }
 
         #fade-overlay.active {
@@ -77,7 +77,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 28px;
+            padding: 0 24px;
             z-index: 25;
             box-shadow: 0 6px 24px rgba(0, 18, 40, 0.45);
             color: #ffffff;
@@ -130,14 +130,14 @@
         }
 
         .brand-main-title {
-            font-size: 1.28rem;
+            font-size: 1.24rem;
             font-weight: 700;
             letter-spacing: 0.3px;
             color: #ffffff;
         }
 
         .brand-sub-title {
-            font-size: 0.82rem;
+            font-size: 0.8rem;
             color: #dbeafe;
             font-weight: 400;
         }
@@ -145,7 +145,7 @@
         .header-controls {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
 
         .view-mode-switcher {
@@ -160,8 +160,8 @@
             background: transparent;
             color: #dbeafe;
             border: none;
-            padding: 7px 12px;
-            font-size: 0.78rem;
+            padding: 7px 11px;
+            font-size: 0.76rem;
             font-weight: 600;
             cursor: pointer;
             transition: 0.2s;
@@ -173,13 +173,14 @@
             color: var(--vsu-blue-dark);
         }
 
+        /* Компактный аудиоплеер */
         .audio-mini-widget {
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 5px;
             background: rgba(255, 255, 255, 0.12);
             border: 1px solid rgba(255, 255, 255, 0.28);
-            padding: 5px 10px;
+            padding: 5px 9px;
             border-radius: 7px;
         }
 
@@ -187,8 +188,8 @@
             background: transparent;
             border: none;
             color: #ffffff;
-            width: 26px;
-            height: 26px;
+            width: 24px;
+            height: 24px;
             border-radius: 4px;
             cursor: pointer;
             display: flex;
@@ -207,16 +208,16 @@
         }
 
         .track-label {
-            font-size: 0.75rem;
+            font-size: 0.74rem;
             color: #e2e8f0;
-            max-width: 110px;
+            max-width: 105px;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }
 
         .volume-mini {
-            width: 50px;
+            width: 48px;
             height: 4px;
             accent-color: #ffffff;
             cursor: pointer;
@@ -226,9 +227,9 @@
             background: rgba(255, 255, 255, 0.14);
             color: #ffffff;
             border: 1px solid rgba(255, 255, 255, 0.32);
-            padding: 7px 12px;
+            padding: 7px 11px;
             border-radius: 7px;
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.2s;
@@ -240,7 +241,7 @@
             color: var(--vsu-blue-dark);
         }
 
-        /* Левая информационная панель */
+        /* Левая информационная панель с функцией широкого разворота */
         #info-panel {
             position: fixed;
             top: 108px;
@@ -252,11 +253,11 @@
             border: 1px solid var(--border-color);
             border-top: 4px solid var(--vsu-blue-main);
             border-radius: 12px;
-            padding: 24px 26px;
+            padding: 22px 24px;
             z-index: 15;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 14px;
             box-shadow: var(--shadow-elevated);
             transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1),
                         transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
@@ -283,7 +284,7 @@
 
         .era-label {
             display: inline-block;
-            font-size: 0.73rem;
+            font-size: 0.72rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.9px;
@@ -295,7 +296,7 @@
         }
 
         .location-heading {
-            font-size: 1.38rem;
+            font-size: 1.35rem;
             font-weight: 700;
             color: var(--vsu-blue-dark);
             line-height: 1.25;
@@ -311,9 +312,9 @@
             background: var(--surface-alt);
             border: 1px solid var(--border-color);
             color: var(--vsu-blue-dark);
-            padding: 6px 11px;
+            padding: 6px 10px;
             border-radius: 6px;
-            font-size: 0.78rem;
+            font-size: 0.76rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.2s;
@@ -324,10 +325,11 @@
             color: #ffffff;
         }
 
+        /* Подвкладки объектов (при клике также поворачивают и приближают 360-камеру) */
         .sub-tabs {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 7px;
             border-bottom: 1px solid #cbd5e1;
             padding-bottom: 12px;
         }
@@ -336,9 +338,9 @@
             background: var(--surface-alt);
             border: 1px solid #cbd5e1;
             color: var(--text-secondary);
-            padding: 7px 14px;
+            padding: 7px 13px;
             border-radius: 6px;
-            font-size: 0.84rem;
+            font-size: 0.82rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.2s;
@@ -358,8 +360,8 @@
         .info-content {
             overflow-y: auto;
             padding-right: 10px;
-            line-height: 1.72;
-            font-size: 0.96rem;
+            line-height: 1.7;
+            font-size: 0.95rem;
             color: var(--text-primary);
         }
 
@@ -379,7 +381,7 @@
 
         .info-content h4 {
             color: var(--vsu-blue-dark);
-            font-size: 1.02rem;
+            font-size: 1.01rem;
             margin: 14px 0 6px 0;
         }
 
@@ -396,10 +398,10 @@
         .fact-callout {
             background: var(--vsu-blue-light);
             border-left: 4px solid var(--vsu-blue-main);
-            padding: 12px 16px;
+            padding: 11px 15px;
             border-radius: 0 6px 6px 0;
-            margin-top: 12px;
-            font-size: 0.9rem;
+            margin-top: 10px;
+            font-size: 0.88rem;
             color: var(--vsu-blue-dark);
         }
 
@@ -420,6 +422,7 @@
             display: none;
         }
 
+        /* Нижняя панель навигации */
         nav#bottom-dock {
             position: fixed;
             bottom: 22px;
@@ -441,10 +444,10 @@
             background: transparent;
             border: 1px solid transparent;
             color: var(--text-secondary);
-            padding: 10px 18px;
+            padding: 10px 16px;
             border-radius: 6px;
             cursor: pointer;
-            font-size: 0.88rem;
+            font-size: 0.86rem;
             font-weight: 600;
             white-space: nowrap;
             transition: all 0.2s ease;
@@ -461,7 +464,57 @@
             box-shadow: 0 4px 12px rgba(0, 71, 148, 0.3);
         }
 
-        @media (max-width: 1024px) {
+        /* Модальное окно для ручной замены iframe при необходимости */
+        #modal-custom-pano {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 20, 45, 0.72);
+            backdrop-filter: blur(5px);
+            z-index: 100;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-card {
+            background: #ffffff;
+            border-top: 5px solid var(--vsu-blue-main);
+            border-radius: 12px;
+            width: 540px;
+            max-width: 92vw;
+            padding: 24px;
+            box-shadow: var(--shadow-elevated);
+        }
+
+        .modal-card h3 {
+            color: var(--vsu-blue-dark);
+            margin-bottom: 8px;
+            font-size: 1.12rem;
+        }
+
+        .modal-card p {
+            font-size: 0.86rem;
+            color: var(--text-secondary);
+            margin-bottom: 14px;
+            line-height: 1.5;
+        }
+
+        .modal-input {
+            width: 100%;
+            padding: 10px 12px;
+            border-radius: 6px;
+            border: 1px solid #cbd5e1;
+            font-size: 0.86rem;
+            margin-bottom: 14px;
+        }
+
+        .modal-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 8px;
+        }
+
+        @media (max-width: 1100px) {
             header { padding: 0 14px; height: 80px; }
             .brand-sub-title, .track-label { display: none; }
             #info-panel, #info-panel.expanded {
@@ -477,12 +530,12 @@
 
     <div id="fade-overlay"></div>
 
-    <!-- Интерактивная 360° онлайн-панорама -->
+    <!-- Интерактивная 360° панорама Google Street View -->
     <div id="streetview-container">
         <iframe id="streetview-frame" allowfullscreen loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 
-    <!-- Верхняя шапка портала с эмблемой ВГУ и группой 26ИО1Д -->
+    <!-- Верхняя шапка в цветах ВГУ с плашкой 26ИО1Д -->
     <header>
         <div class="brand">
             <div class="badge-group">
@@ -496,12 +549,18 @@
         </div>
 
         <div class="header-controls">
+            <!-- Переключатель 360° Street View / Спутник -->
             <div class="view-mode-switcher">
-                <button class="btn-mode active" id="mode-pano" onclick="setViewMode('pano')">Google Street View</button>
+                <button class="btn-mode active" id="mode-pano" onclick="setViewMode('pano')">360° Панорама</button>
                 <button class="btn-mode" id="mode-sat" onclick="setViewMode('satellite')">Спутник</button>
             </div>
 
-            <!-- Компактный плеер для OST Волчица и пряности -->
+            <!-- Быстрый возврат камеры на случай клика по битой стрелке внутри Google -->
+            <button class="btn-header" onclick="resetCurrentCamera()" title="Мгновенно вернуть 360° камеру в исходную точку обзора">
+                Сбросить 360° камеру
+            </button>
+
+            <!-- Плеер для OST Волчица и пряности -->
             <audio id="bg-audio"></audio>
             <div class="audio-mini-widget">
                 <button class="icon-btn" onclick="prevTrack()" title="Предыдущий трек">
@@ -516,6 +575,10 @@
                 <span class="track-label" id="track-title">Yume no Manimani</span>
                 <input type="range" class="volume-mini" id="volume-slider" min="0" max="1" step="0.05" value="0.35" title="Громкость">
             </div>
+
+            <button class="btn-header" onclick="openCustomModal()" title="Вставить свой код iframe из Google Карт для этой вкладки">
+                Сменить 360° вид
+            </button>
 
             <button class="btn-header" onclick="toggleFullscreen()">
                 Полный экран
@@ -548,24 +611,41 @@
         <div class="info-content" id="loc-description"></div>
     </aside>
 
-    <!-- Нижняя навигация по 5 локациям -->
+    <!-- Нижняя панель навигации по 5 локациям -->
     <nav id="bottom-dock">
         <button class="nav-item active" onclick="switchScene('square', this)">Ратушная площадь</button>
         <button class="nav-item" onclick="switchScene('sobor', this)">Успенская горка</button>
-        <button class="nav-item" onclick="switchScene('unovis', this)">Наследие УНОВИС</button>
-        <button class="nav-item" onclick="switchScene('vitba', this)">Древний детинец и Витьба</button>
+        <button class="nav-item" onclick="switchScene('dvina_bridge', this)">Древнее зодчество и Двина</button>
+        <button class="nav-item" onclick="switchScene('culture_capital', this)">Летний амфитеатр и М. Шагал</button>
         <button class="nav-item" onclick="switchScene('ww2_ussr', this)">Подвиг ВОВ, СССР и П. М. Машеров</button>
     </nav>
+
+    <!-- Модальное окно для быстрой замены 360-ссылки при желании -->
+    <div id="modal-custom-pano">
+        <div class="modal-card">
+            <h3>Обновить 360° панораму для текущей вкладки</h3>
+            <p>
+                Если вы нашли в Google Картах ракурс, который нравится вам больше, нажмите в Google Картах <b>«Поделиться» → «Встраивание карт» → «Копировать HTML»</b> и вставьте скопированный код <code>&lt;iframe ...&gt;</code> ниже:
+            </p>
+            <input type="text" id="custom-pano-input" class="modal-input" placeholder='<iframe src="https://www.google.com/maps/embed?pb=..." ...></iframe>'>
+            <div class="modal-actions">
+                <button class="btn-panel-tool" onclick="closeCustomModal()">Отмена</button>
+                <button class="btn-panel-tool" style="background: var(--vsu-blue-main); color: #fff;" onclick="saveCustomPano()">Применить 360° вид</button>
+            </div>
+        </div>
+    </div>
 
     <script>
         /* ==========================================================================
            1. Плейлист фоновой музыки (Spice and Wolf OST)
+           Чтобы добавить новые треки, положи MP3 в папку проекта и допиши ниже:
            ========================================================================== */
         const playlist = [
             {
                 title: "Yume no Manimani",
                 src: "Spice_and_Wolf_OST_-_Yume_no_Manimani_73373933.mp3"
             }
+            // , { title: "Tabi no Tochuu", src: "tabi_no_tochuu.mp3" }
         ];
 
         let currentTrackIndex = 0;
@@ -606,7 +686,7 @@
         function toggleMusic() {
             if (audioEl.paused) {
                 audioEl.play().then(() => updatePlayButtonUI(true)).catch(() => {
-                    alert('Положите музыкальный файл Spice_and_Wolf_OST_-_Yume_no_Manimani_73373933.mp3 в одну папку с index.html.');
+                    alert('Убедитесь, что файл Spice_and_Wolf_OST_-_Yume_no_Manimani_73373933.mp3 находится в одной папке с index.html.');
                 });
             } else {
                 audioEl.pause();
@@ -627,27 +707,30 @@
         }
 
         /* ==========================================================================
-           2. База данных локаций (Чистый Google Street View без подворотен)
+           2. База данных 5 локаций с привязкой 360°-ракурсов к КАЖДОЙ подвкладке
            ========================================================================== */
         const scenesData = {
             square: {
                 era: "Магдебургское право • XVI–XVIII вв.",
                 title: "Ратушная площадь и Рыночный ансамбль",
-                panoUrl: "https://www.google.com/maps/embed?pb=!4v1710000000000!6m8!1m7!1sCIHM0ogKEICAgID4xYDBYQ!2m2!1d55.1952443!2d30.2060645!3f56.9!4f11.57!5f0.7820865974627469",
                 satelliteUrl: "https://maps.google.com/maps?ll=55.19548,30.20642&q=55.19548,30.20642+(Витебская+ратуша)&t=k&z=19&ie=UTF8&iwloc=&output=embed",
                 tabs: [
                     {
                         name: "Городская ратуша (1775 г.)",
+                        // Рабочая панорама CIHM0ogKEICAgID4xYDBYQ с автоматическим наведением и оптическим приближением прямо на башню Ратуши!
+                        panoUrl: "https://www.google.com/maps/embed?pb=!4v1710000000000!6m8!1m7!1sCIHM0ogKEICAgID4xYDBYQ!2m2!1d55.1952443!2d30.2060645!3f74.5!4f9.5!5f0.45",
                         content: `
                             <p><b>Витебская городская ратуша</b> — выдающийся памятник гражданской архитектуры XVIII столетия и главный исторический символ городского самоуправления. В 1597 году привилеем короля Сигизмунда III Вазы Витебску было даровано Магдебургское право, утвердившее выборный орган городского управления — магистрат, а также исторический герб города.</p>
                             <h4>Архитектурный облик и эволюция</h4>
                             <p>Первые здания ратуши на Рыночной площади возводились из дерева и неоднократно страдали от пожаров. Существующее кирпичное здание было построено в <b>1775 году</b>. Его архитектура органично сочетает пластику позднего <b>виленского барокко</b> (утончённый декор многоярусной часовой башни, криволинейные фронтоны и пилястры) со строгой симметрией раннего классицизма в основном корпусе.</p>
                             <p>В начале XX века над основным двухэтажным объёмом был надстроен третий этаж. Высокая башня ратуши на протяжении столетий выполняла роль главной дозорной и пожарной каланчи города, а сегодня на ней оборудована панорамная смотровая площадка.</p>
-                            <div class="fact-callout">В залах Витебской ратуши располагается Витебский областной краеведческий музей, фонды которого насчитывают свыше 200 тысяч уникальных памятников материальной и духовной культуры Витебщины.</div>
+                            <div class="fact-callout">На заметку: Переключайте вкладки выше («Воскресенская церковь», «Памятник князю Ольгерду») — 360°-камера сама автоматически повернётся и наведет фокус на выбранный памятник без необходимости нажимать на уличные стрелки!</div>
                         `
                     },
                     {
                         name: "Воскресенская церковь",
+                        // Автоповорот на фасад Храма Воскресения Христова
+                        panoUrl: "https://www.google.com/maps/embed?pb=!4v1710000000000!6m8!1m7!1sCIHM0ogKEICAgID4xYDBYQ!2m2!1d55.1952443!2d30.2060645!3f45.0!4f13.5!5f0.78",
                         content: `
                             <p><b>Храм Воскресения Христова (Рыночная церковь)</b> образует единый градостроительный ансамбль с городской ратушей, формируя исторический силуэт старого города. Каменный храм был возведён в <b>1772 году</b> на средства витебского купца Николая Смыка на месте более древней деревянной православной церкви XVI века.</p>
                             <h4>Особенности стиля виленского барокко</h4>
@@ -657,6 +740,8 @@
                     },
                     {
                         name: "Памятник князю Ольгерду",
+                        // Автоповорот на 222 градуса прямо на конный памятник князю Ольгерду!
+                        panoUrl: "https://www.google.com/maps/embed?pb=!4v1710000000000!6m8!1m7!1sCIHM0ogKEICAgID4xYDBYQ!2m2!1d55.1952443!2d30.2060645!3f222.0!4f3.0!5f0.55",
                         content: `
                             <p>Напротив Воскресенского храма, у пересечения исторических улиц Толстого и Суворова, установлен монументальный конный памятник великому князю литовскому и витебскому <b>Ольгерду (1296–1377)</b>, торжественно открытый в июне 2014 года (скульптор С. Бондаренко).</p>
                             <h4>Роль Ольгерда в истории Витебска</h4>
@@ -668,12 +753,12 @@
 
             sobor: {
                 era: "Архитектурная доминанта • XVIII–XXI вв.",
-                title: "Успенская горка и Кафедральный собор",
-                panoUrl: "https://www.google.com/maps/embed?pb=!4v1710000000001!6m8!1m7!1sCAoSLEFGMVFpcE5mN2p6dF93Z2J5bV9rV0h6U2R6X3l5X2p3X2p3X2p3X2p3!2m2!1d55.196165!2d30.202482!3f260!4f12!5f0.7820865974627469",
+                title: "Успенская горка и Губернаторский ансамбль",
                 satelliteUrl: "https://maps.google.com/maps?ll=55.196165,30.202482&q=55.196165,30.202482+(Свято-Успенский+собор)&t=k&z=19&ie=UTF8&iwloc=&output=embed",
                 tabs: [
                     {
                         name: "Свято-Успенский собор",
+                        panoUrl: "https://www.google.com/maps/embed?pb=!4v1710000000001!6m8!1m7!1sCAoSLEFGMVFpcE5mN2p6dF93Z2J5bV9rV0h6U2R6X3l5X2p3X2p3X2p3X2p3!2m2!1d55.196165!2d30.202482!3f260!4f12!5f0.7820865974627469",
                         content: `
                             <p><b>Свято-Успенский кафедральный собор</b>, увенчивающий высокий обрывистый берег Западной Двины на Успенской (бывшей Лысой) горке, является главной высотной и композиционной доминантой исторического центра Витебска.</p>
                             <h4>История строительства и возрождения</h4>
@@ -682,204 +767,53 @@
                         `
                     },
                     {
-                        name: "Губернаторский дворец",
+                        name: "Памятник героям 1812 года и Дворец",
+                        // Настоящие координаты сквера Героев 1812 года и Губернаторского дворца на ул. Путна (на Успенской горке, а не в ТЦ!)
+                        panoUrl: "https://www.google.com/maps/embed?pb=!4v1710000000002!6m8!1m7!1sCAoSLEFGMVFpcE5mN2p6dF93Z2J5bV9rV0h6U2R6X3l5X2p3X2p3X2p3X2p3!2m2!1d55.19437!2d30.20553!3f180!4f8!5f0.7820865974627469",
                         content: `
-                            <p>В непосредственной близости от Успенской горки, на высоком берегу Западной Двины, расположен ансамбль <b>Губернаторского дворца</b> — памятник архитектуры классицизма конца XVIII – начала XIX века.</p>
-                            <h4>Исторические события</h4>
-                            <p>Первоначально трёхэтажный особняк возводился в 1772 году как городской дворец шляхтичей Кудиновичей, а с 1806 года стал официальной резиденцией витебских генерал-губернаторов. В 1811 году к нему был пристроен двухэтажный корпус с парадным залом и портиком.</p>
-                            <p>Дворец вошёл в европейскую историю как место, где в июле 1812 года на протяжении двух недель размещалась ставка французского императора Наполеона I, а в 1820-е годы здесь трудился генерал-губернатор герцог Александр Вюртембергский.</p>
+                            <p>Рядом с Успенской горкой расположен ансамбль <b>Губернаторского дворца (XVIII–XIX вв.)</b> в стиле классицизма и тенистый сквер, где возвышается <b>Памятник героям Отечественной войны 1812 года</b>.</p>
+                            <h4>Монумент 1912 года и исторические события</h4>
+                            <p>Гранитный обелиск на высоком пьедестале, увенчанный бронзовым двуглавым орлом на земном шаре (проект архитектора И. А. Фомина), был торжественно открыт в <b>ноябре 1912 года</b> в память о доблести русских воинов в сражениях под Витебском. Напротив монумента находится здание Губернаторского дворца, служившее резиденцией витебских генерал-губернаторов, в том числе герцога Александра Вюртембергского.</p>
                         `
                     }
                 ]
             },
 
-            unovis: {
-                era: "Художественный авангард • 1918–1922 гг.",
-                title: "Витебский ренессанс и музей УНОВИС",
-                panoUrl: "https://www.google.com/maps/embed?pb=!4v1710000000002!6m8!1m7!1sCAoSLEFGMVFpcE16X0p5X0p5X0p5X0p5X0p5X0p5X0p5X0p5X0p5!2m2!1d55.19125!2d30.20445!3f180!4f5!5f0.7820865974627469",
-                satelliteUrl: "https://maps.google.com/maps?ll=55.19125,30.20445&q=55.19125,30.20445+(Музей+ВНХУ+УНОВИС)&t=k&z=19&ie=UTF8&iwloc=&output=embed",
+            dvina_bridge: {
+                era: "Древний Полоцко-Витебский край • X–XII вв.",
+                title: "Площадь Тысячелетия, Благовещенский храм и Западная Двина",
+                satelliteUrl: "https://maps.google.com/maps?ll=55.19236,30.20155&q=55.19236,30.20155+(Благовещенская+церковь+XII+века)&t=k&z=18&ie=UTF8&iwloc=&output=embed",
                 tabs: [
                     {
-                        name: "Народное художественное училище",
+                        name: "Благовещенская церковь XII в.",
+                        // Точные координаты открытой площади перед Благовещенской церковью и памятником Александру Невскому у Кировского моста!
+                        panoUrl: "https://www.google.com/maps/embed?pb=!4v1710000000003!6m8!1m7!1sCAoSLEFGMVFpcE5mN2p6dF93Z2J5bV9rV0h6U2R6X3l5X2p3X2p3X2p3X2p3!2m2!1d55.19236!2d30.20155!3f135!4f8!5f0.7820865974627469",
                         content: `
-                            <p>Особняк бывшего банкира Израэля Вишняка (ныне ул. Марка Шагала, 5а) стал всемирно известным адресом в истории искусства XX века. Именно здесь в январе 1919 года по инициативе уроженца Витебска <b>Марка Шагала</b> было торжественно открыто <b>Витебское народное художественное училище</b>.</p>
-                            <h4>Феномен УНОВИС и Казимир Малевич</h4>
-                            <p>Осенью 1919 года по приглашению Веры Ермолаевой и Марка Шагала в Витебск прибыл основоположник супрематизма <b>Казимир Малевич</b>. В феврале 1920 года в стенах училища было сформировано легендарное объединение <b>УНОВИС («Утвердители нового искусства»)</b>.</p>
-                            <p>В Витебске супрематизм совершил революционный переход из станковой живописи в реальную предметно-пространственную среду: преподаватели и студенты разрабатывали проекты новой архитектуры, дизайна транспорта, текстиля, театральных декораций и супрематического оформления улиц и трамваев города.</p>
+                            <p>На высоком левом берегу Западной Двины, на современной Площади 1000-летия Витебска, возвышается древнейший каменный памятник города — <b>Благовещенская церковь (середина XII века)</b>, построенная в эпоху расцвета удельного Витебского княжества.</p>
+                            <h4>Византийско-полоцкая архитектурная школа</h4>
+                            <p>Шестистолпный трёхапсидный крестово-купольный храм представляет собой уникальный образец древнерусского зодчества. Его стены возведены в редкой технике кладки «со скрытым рядом», где ряды тёсаных блоков светлого местного доломита чередуются с прослойками широкого плоского кирпича — <b>плинфы</b> на розовом цемяночном растворе.</p>
+                            <p>Рядом с храмом установлена скульптурная композиция в честь святого благоверного князя <b>Александра Невского</b>, его супруги витебской княжны Александры Брячиславны и их сына Василия.</p>
                         `
                     },
                     {
-                        name: "Марк Шагал и Эль Лисицкий",
+                        name: "Кировский мост и Западная Двина",
+                        // Панорамная точка прямо на Кировском мосту над акваторией Западной Двины
+                        panoUrl: "https://www.google.com/maps/embed?pb=!4v1710000000003!6m8!1m7!1sCAoSLEFGMVFpcE5mN2p6dF93Z2J5bV9rV0h6U2R6X3l5X2p3X2p3X2p3X2p3!2m2!1d55.19272!2d30.20045!3f35!4f5!5f0.7820865974627469",
                         content: `
-                            <p>Творческий союз мастеров, работавших в Витебске в 1918–1922 годах (Юдель Пэн, Марк Шагал, Казимир Малевич, Мстислав Добужинский, Роберт Фальк, Вера Ермолаева, Лазарь Хидекель), исследователи по праву называют <b>«Витебским ренессансом»</b>.</p>
-                            <h4>Архитектурные «Проуны» Лисицкого</h4>
-                            <p>Особое место в истории училища занимает деятельность <b>Эль Лисицкого (Лазаря Лисицкого)</b>, руководившего в Витебске мастерской архитектуры и графики. Именно здесь он создал свои знаменитые <i>«Проуны» (Проекты утверждения нового)</i> — объёмно-пространственные композиции, ставшие теоретическим и практическим фундаментом мирового конструктивизма и современного графического дизайна.</p>
+                            <p>Река <b>Западная Двина</b> и впадающая в неё <b>Витьба</b> с 974 года определяли градостроительное и экономическое развитие Витебска как ключевого форпоста на торговом пути «из варяг в греки».</p>
+                            <h4>Главные речные ворота города</h4>
+                            <p>С пролётов <b>Кировского моста</b> (возведённого в 1955 году на месте исторического Двинского моста конца XIX века) открывается величественная панорама обоих берегов Западной Двины: ансамбля Успенской горки, Благовещенской церкви, здания Национального академического драматического театра имени Якуба Коласа и исторической застройки Задвинья.</p>
                         `
                     }
                 ]
             },
 
-            vitba: {
-                era: "Истоки государственности • X–XII вв.",
-                title: "Устье реки Витьбы и древний детинец",
-                panoUrl: "https://www.google.com/maps/embed?pb=!4v1710000000003!6m8!1m7!1sCAoSLEFGMVFpcE9fX0p5X0p5X0p5X0p5X0p5X0p5X0p5X0p5X0p5!2m2!1d55.19450!2d30.20350!3f110!4f5!5f0.7820865974627469",
-                satelliteUrl: "https://maps.google.com/maps?ll=55.1928,30.2038&q=55.1928,30.2038+(Благовещенская+церковь+и+Двина)&t=k&z=18&ie=UTF8&iwloc=&output=embed",
+            culture_capital: {
+                era: "Культурная столица • XX–XXI вв.",
+                title: "Летний амфитеатр, башня «Духовской круглик» и наследие М. Шагала",
+                satelliteUrl: "https://maps.google.com/maps?ll=55.19122,30.21028&q=55.19122,30.21028+(Летний+амфитеатр+Витебск)&t=k&z=18&ie=UTF8&iwloc=&output=embed",
                 tabs: [
                     {
-                        name: "Основание города (974 г.)",
-                        content: `
-                            <p>Живописная территория при впадении реки <b>Витьбы</b> в полноводную <b>Западную Двину</b> является исторической колыбелью Витебска. Согласно своду Витебской летописи Панцирного-Аверки, город был основан в <b>974 году киевской княгиней Ольгой</b>, заложившей на высоких берегах деревянный замок.</p>
-                            <h4>Верхний и Нижний замки</h4>
-                            <p>Удобное географическое положение на пересечении важнейших речных артерий знаменитого торгового пути «из варяг в греки» способствовало стремительному росту поселения. В XI–XIII веках Витебск стал столицей самостоятельного удельного княжества.</p>
-                            <p>Древний детинец располагался на Замковой горе у левого берега Витьбы (Верхний замок), а вокруг него вдоль береговой линии развивался укреплённый торгово-ремесленный посад (Нижний замок и Взгорский посад).</p>
-                        `
-                    },
-                    {
-                        name: "Благовещенская церковь XII века",
-                        content: `
-                            <p>Выдающимся свидетельством высокого уровня зодчества древнего Витебска является <b>Благовещенская церковь</b>, возведённая в середине XII века на берегу Западной Двины в период расцвета Витебского княжества.</p>
-                            <h4>Уникальная техника кладки</h4>
-                            <p>Шестистолпный трёхапсидный храм представляет собой редчайший образец византийско-полоцкой архитектурной школы. Его стены сложены в уникальной технике чередования рядов тёсаных блоков местного светлого доломита с прослойками широкого плоского кирпича — <b>плинфы</b> на розовом цемяночном растворе, что придавало фасадам неповторимую полихромную выразительность.</p>
-                        `
-                    }
-                ]
-            },
-
-            ww2_ussr: {
-                era: "Подвиг и возрождение • XX век",
-                title: "Великая Отечественная война, эпоха СССР и вклад П. М. Машерова",
-                panoUrl: "https://www.google.com/maps/embed?pb=!4v1710000000004!6m8!1m7!1sCAoSLEFGMVFpcE1fX0p5X0p5X0p5X0p5X0p5X0p5X0p5X0p5X0p5!2m2!1d55.18425!2d30.20305!3f215!4f8!5f0.7820865974627469",
-                satelliteUrl: "https://maps.google.com/maps?ll=55.18425,30.20305&q=55.18425,30.20305+(Площадь+Победы+Три+штыка)&t=k&z=18&ie=UTF8&iwloc=&output=embed",
-                tabs: [
-                    {
-                        name: "П. М. Машеров — гордость Витебщины",
-                        content: `
-                            <p>Особое место в истории Витебской земли, всей Беларуси и нашего университета занимает выдающийся государственный и политический деятель, руководитель Советской Белоруссии <b>Пётр Миронович Машеров (1918–1980)</b> — уроженец деревни Ширки Сенненского района Витебской области.</p>
-                            <h4>От студента Витебского пединститута до Героя Советского Союза</h4>
-                            <p>В 1935–1939 годах Пётр Машеров с отличием учился на физико-математическом факультете <b>Витебского государственного педагогического института имени С. М. Кирова</b> (ныне ВГУ имени П. М. Машерова), после чего работал учителем физики и математики в Россонах.</p>
-                            <ul>
-                                <li><b>Партизанский командир и подпольщик:</b> С первых дней Великой Отечественной войны П. М. Машеров встал на защиту Родины. В августе 1941 года создал в Россонах комсомольско-молодёжное подполье «Дубняк», в апреле 1942 года возглавил партизанский отряд имени Н. А. Щорса, а затем стал комиссаром партизанской бригады имени К. К. Рокоссовского и первым секретарём Вилейского подпольного обкома ЛКСМБ.</li>
-                                <li><b>Высокая награда Родины:</b> За образцовое выполнение боевых заданий в тылу врага и проявленные при этом отвагу и мужество 15 августа 1944 года Петру Мироновичу Машерову было присвоено звание <b>Героя Советского Союза</b>.</li>
-                                <li><b>Созидатель современной Беларуси (1965–1980):</b> Возглавляя ЦК КПБ на протяжении пятнадцати лет, П. М. Машеров вывел республику в число наиболее передовых индустриальных, научных и культурных регионов Советского Союза. В 1978 году его выдающийся созидательный труд был отмечен званием <b>Героя Социалистического Труда</b>.</li>
-                            </ul>
-                            <div class="fact-callout">В 1998 году имя Петра Мироновича Машерова было с гордостью присвоено его альма-матер — Витебскому государственному университету, продолжающему традиции подготовки лучших кадров страны.</div>
-                        `
-                    },
-                    {
-                        name: "Освобождение города и «Три штыка»",
-                        content: `
-                            <p>В годы Великой Отечественной войны (1941–1945) Витебщина стала ареной беспримерного мужества. На территории области развернулось мощнейшее партизанское движение (знаменитые «Суражские ворота», Россонско-Освейская и Полоцко-Лепельская партизанские зоны), а в самом оккупированном городе действовали десятки бесстрашных подпольных групп, в рядах которых сражались Герой Советского Союза <b>Вера Хоружая</b>, София Панкова, Лидия Берёзкина и сотни патриотов.</p>
-                            <h4>Витебско-Оршанская операция и мемориал на Площади Победы</h4>
-                            <p><b>26 июня 1944 года</b> войска 1-го Прибалтийского и 3-го Белорусского фронтов под командованием генералов И. Х. Баграмяна и И. Д. Черняховского освободили Витебск в ходе стратегической операции «Багратион». К моменту освобождения жилой фонд и промышленность города были разрушены более чем на 93%.</p>
-                            <p>В память о бессмертном подвиге народа 30 июня 1974 года (к 30-летию освобождения города и 1000-летию Витебска) при личном участии П. М. Машерова на Площади Победы был открыт грандиозный мемориальный комплекс <b>«Три штыка»</b> — три 56-метровых обелиска, символизирующих нерушимое единство Красной Армии, партизан и подпольщиков Витебщины.</p>
-                        `
-                    },
-                    {
-                        name: "Индустриальный расцвет в эпоху СССР",
-                        content: `
-                            <p>Послевоенная история Витебска в составе БССР и Советского Союза — это летопись трудового героизма. В кратчайшие сроки жители города и строители со всего Союза подняли Витебск из руин, заново отстроив жилые кварталы, мосты, школы, театры и высшие учебные заведения.</p>
-                            <h4>Промышленный, научный и культурный гигант</h4>
-                            <p>В 1950–1980-е годы при активной поддержке руководства республики Витебск совершил мощный технологический рывок, превратившись в один из ключевых индустриальных центров страны:</p>
-                            <ul>
-                                <li>Были введены в строй флагманы точного станкостроения (заводы имени С. М. Кирова, имени Коминтерна, ВИЗАС) и приборостроения (завод электроизмерительных приборов).</li>
-                                <li>Сформирован мощный кластер радиоэлектроники — производственное объединение «Монолит» и знаменитый Витебский телевизионный завод «Витязь».</li>
-                                <li>Развивались гиганты лёгкой и текстильной промышленности («Знамя индустриализации», ковровый и шёлковый комбинаты, «Красный Октябрь»).</li>
-                                <li>В 1988 году в городе был построен уникальный Летний амфитеатр, ставший главной сценической площадкой международного фестиваля искусств.</li>
-                            </ul>
-                        `
-                    }
-                ]
-            }
-        };
-
-        let currentSceneKey = 'square';
-        let currentViewMode = 'pano';
-
-        function setViewMode(mode) {
-            currentViewMode = mode;
-            document.getElementById('mode-pano').classList.toggle('active', mode === 'pano');
-            document.getElementById('mode-sat').classList.toggle('active', mode === 'satellite');
-            updateIframeSource();
-        }
-
-        function updateIframeSource() {
-            const data = scenesData[currentSceneKey];
-            const frame = document.getElementById('streetview-frame');
-            frame.src = (currentViewMode === 'pano') ? data.panoUrl : data.satelliteUrl;
-        }
-
-        function switchScene(sceneKey, btnElement) {
-            if (sceneKey === currentSceneKey && document.getElementById('streetview-frame').src) return;
-            currentSceneKey = sceneKey;
-
-            if (btnElement) {
-                document.querySelectorAll('.nav-item').forEach(btn => btn.classList.remove('active'));
-                btnElement.classList.add('active');
-            }
-
-            const overlay = document.getElementById('fade-overlay');
-            overlay.classList.add('active');
-
-            setTimeout(() => {
-                renderScene(sceneKey);
-                setTimeout(() => overlay.classList.remove('active'), 200);
-            }, 340);
-        }
-
-        function renderScene(sceneKey) {
-            const data = scenesData[sceneKey];
-            document.getElementById('era-badge').textContent = data.era;
-            document.getElementById('loc-title').textContent = data.title;
-
-            const tabsContainer = document.getElementById('sub-tabs-container');
-            tabsContainer.innerHTML = '';
-
-            data.tabs.forEach((tab, index) => {
-                const tabBtn = document.createElement('button');
-                tabBtn.className = 'sub-tab' + (index === 0 ? ' active' : '');
-                tabBtn.textContent = tab.name;
-                tabBtn.onclick = () => {
-                    document.querySelectorAll('.sub-tab').forEach(b => b.classList.remove('active'));
-                    tabBtn.classList.add('active');
-                    document.getElementById('loc-description').innerHTML = tab.content;
-                };
-                tabsContainer.appendChild(tabBtn);
-            });
-
-            document.getElementById('loc-description').innerHTML = data.tabs[0].content;
-            updateIframeSource();
-        }
-
-        function toggleExpandPanel() {
-            const panel = document.getElementById('info-panel');
-            const btnExpand = document.getElementById('btn-expand');
-            panel.classList.toggle('expanded');
-            btnExpand.textContent = panel.classList.contains('expanded') ? 'Уменьшить окно' : 'Развернуть';
-        }
-
-        function toggleInfoPanel(show) {
-            const panel = document.getElementById('info-panel');
-            const reopenBtn = document.getElementById('btn-reopen-panel');
-            if (show) {
-                panel.classList.remove('collapsed');
-                reopenBtn.style.display = 'none';
-            } else {
-                panel.classList.add('collapsed');
-                reopenBtn.style.display = 'block';
-            }
-        }
-
-        function toggleFullscreen() {
-            if (!document.fullscreenElement) {
-                document.documentElement.requestFullscreen();
-            } else {
-                document.exitFullscreen();
-            }
-        }
-
-        window.onload = () => {
-            renderScene('square');
-        };
-    </script>
-</body>
-</html>
+                        name: "Летний амфитеатр и «Духовской круглик»",
+                        // Открытая панорама чаши Летнего амфитеатра и башни Духовской круглик (в парке, вдали от магазинов!)
+                        panoUrl: "
